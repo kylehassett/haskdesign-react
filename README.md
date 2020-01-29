@@ -1,3 +1,3 @@
 # haskdesign-react
 
-# # Resume Site for Kyle Hassett
+Resume Site for Kyle Hassett
