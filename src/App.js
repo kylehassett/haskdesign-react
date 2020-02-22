@@ -1,8 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux';
 
-function App() {
+import './App.sass';
+
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
@@ -10,9 +11,16 @@ function App() {
           Hi! Welcome to haskdesign.
         </p>
         <p>The site is currently under construction. Thanks for visiting!</p>
+        <p>{props.userInterfaceMode}</p>
       </header>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    userInterfaceMode: state.userInterface.userInterfaceMode
+  };
+};
+
+export default connect(mapStateToProps)(App);
