@@ -1,26 +1,30 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.sass';
 
-function App(props) {
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Hi! Welcome to haskdesign.
-        </p>
-        <p>The site is currently under construction. Thanks for visiting!</p>
-        <p>{props.userInterfaceMode}</p>
-      </header>
-    </div>
+    <Router>
+
+      <Switch>
+        <Route path={"/home"}>
+          <Home />
+        </Route>
+        <Route path={"/about"}>
+          <About />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    userInterfaceMode: state.userInterface.userInterfaceMode
-  };
-};
+export default App;
 
-export default connect(mapStateToProps)(App);
+function About() {
+  return (
+    <div className="App">
+      <p>About</p>
+    </div>
+  );
+}
