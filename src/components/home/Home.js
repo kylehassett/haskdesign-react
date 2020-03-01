@@ -1,8 +1,9 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 
-function Home() {
+function Home(props) {
   return (
     <div className="App">
       <header className="App-header">
