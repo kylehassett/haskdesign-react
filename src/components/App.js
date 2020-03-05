@@ -6,11 +6,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.sass';
 
-import Home from './home/Home';
-import Header from './function/header/Header';
-import Footer from './function/footer/Footer';
+import { Home } from './home';
+import { Header } from './common/header';
+import { Footer } from './common/footer';
 import { userInterfaceMode } from '../actions/userInterface';
+import { Resume } from './resume';
 import { getTheme } from './theme';
+import { Work } from './work';
 
 
 function App(props) {
@@ -22,7 +24,8 @@ function App(props) {
         <Header />
         <Switch>
           <Route exact path={"/"} component={Home} />
-          <Route exact path={"/about"} component={About} />
+          <Route exact path={"/resume"} component={Resume} />
+          <Route exact path={"/work"} component={Work} />
         </Switch>
         <Footer />
       </ThemeProvider>
@@ -37,9 +40,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(App);
-
-function About() {
-  return (
-    <p>About</p>
-  );
-}
