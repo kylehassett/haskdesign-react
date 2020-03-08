@@ -1,3 +1,4 @@
+/** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import React from 'react';
