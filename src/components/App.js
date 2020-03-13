@@ -5,13 +5,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import './App.sass';
-
 import { Home } from './home';
 import { Header } from './common/header';
 import { Footer } from './common/footer';
 import { userInterfaceMode } from '../actions/userInterface';
 import { Resume } from './resume';
+import { getAppStyles } from './styles';
 import { getTheme } from './theme';
 import { Work } from './work';
 
@@ -22,13 +21,15 @@ function App(props) {
   return (
     <Router>
       <ThemeProvider theme={appTheme}>
-        <Header />
-        <Switch>
-          <Route exact path={"/"} component={Home} />
-          <Route exact path={"/resume"} component={Resume} />
-          <Route exact path={"/work"} component={Work} />
-        </Switch>
-        <Footer />
+        <div className="root" css={getAppStyles}>
+          <Header />
+          <Switch>
+            <Route exact path={"/"} component={Home} />
+            <Route exact path={"/resume"} component={Resume} />
+            <Route exact path={"/work"} component={Work} />
+          </Switch>
+          <Footer />
+        </div>
       </ThemeProvider>
     </Router>
   );
