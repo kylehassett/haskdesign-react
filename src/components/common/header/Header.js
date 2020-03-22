@@ -17,39 +17,49 @@ function Header(props) {
 
   const renderLink = (href, title) => {
     return (
-      <div className="col" align="center">
-        <Link to={href}>{title}</Link>
-      </div>
+      <li className="nav-item mr-5">
+        <Link to={href} className="nav-link">{title}</Link>
+      </li>
     );
   };
 
   const theme = useTheme();
 
   return (
-    <div className="container.fluid" css={getHeaderStyles}>
-      <div className="container" align="center">
-        <div className="row">
-          <div className="col-8 offset-md-2" align="center">
-            <h1>Hask Design</h1>
-          </div>
-          <div className="col-md-2" id="uiColorModeSwitchArea">
+    <nav className="navbar navbar-expand-xl" css={getHeaderStyles}>
+      <Link to={"/"} className="navbar-brand">
+        <h1>Hask Design</h1>
+      </Link>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          { renderLink("/", "Home") }
+          { renderLink("/work", "Work") }
+          { renderLink("/resume", "Resume") }
+          <div className="nav-item" id="uiColorModeSwitchArea">
             <p>Dark Mode: </p>
             <Switch
               checked={props.userInterfaceMode === userInterfaceMode.DARK_MODE}
               checkedIcon={false}
+              offColor={theme.colors.backgrdound}
               onChange={handleCheckChanged}
-              onColor={theme.colors.primaryDark}
+              onColor={theme.colors.background}
               uncheckedIcon={false}
             />
           </div>
-        </div>
-        <div className="row">
-          { renderLink("/", "Home") }
-          { renderLink("/work", "Work") }
-          { renderLink("/resume", "Resume") }
-        </div>
+        </ul>
       </div>
-    </div>
+    </nav>
   );
 }
 

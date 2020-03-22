@@ -1,12 +1,17 @@
+import { merge } from 'lodash';
+
+
 export const getTheme = (inDarkMode) => {
   let theme = {
     colors: {
-      background: 'rgb(255, 255, 255)',
-      paper: 'rgb(177, 177, 177)',
-      ink: 'rgb(0, 0, 0)',
-      primaryDark: '#69a6cc',
-      primary: '#8ebdda',
-      primaryLight: '#b4d3e7'
+      ink: {
+        full: '#000000',
+        sixty: '#666666',
+        forty: '#9999',
+        twenty: '#cccccc'
+      },
+      background: '#dcdcdc',
+      paper: '#ffffff'
     },
     whiteSpace: {
       xs: 4,
@@ -18,13 +23,15 @@ export const getTheme = (inDarkMode) => {
   };
 
   if (inDarkMode) {
-    theme.colors = Object.assign({}, theme.colors, {
-      background: 'rgb(15, 15, 15)',
-      paper: 'rgb(24, 24, 24)',
-      ink: 'rgb(218, 218, 218)',
-      primaryDark: '#367399',
-      primary: '#448fbe',
-      primaryLight: '#69a6cc'
+    theme.colors = merge({}, theme.colors, {
+      ink: {
+        full: '#ffffff',
+        sixty: '#999999',
+        forty: '#666666',
+        twenty: '333333'
+      },
+      background: '#0f0f0f',
+      paper: '#181818'
     });
   }
 

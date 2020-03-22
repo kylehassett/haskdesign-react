@@ -1,7 +1,7 @@
 export const getHeaderStyles = (theme) => ({
-  backgroundColor: theme.colors.primaryLight,
+  backgroundColor: theme.colors.ink.full,
   "h1": {
-    // TODO:
+    color: theme.colors.paper
   },
   "#uiColorModeSwitchArea": {
     display: "flex",
