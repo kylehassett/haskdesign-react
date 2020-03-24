@@ -15,9 +15,11 @@ function Header(props) {
     props.setUserInterfaceMode(checked ? userInterfaceMode.DARK_MODE : userInterfaceMode.LIGHT_MODE);
   };
 
+  const inDarkMode = props.userInterfaceMode === userInterfaceMode.DARK_MODE;
+
   const renderLink = (href, title) => {
     return (
-      <li className="nav-item mr-5">
+      <li className="nav-item pl-3 pr-3 d-inline-flex align-items-center">
         <Link to={href} className="nav-link">{title}</Link>
       </li>
     );
@@ -26,7 +28,10 @@ function Header(props) {
   const theme = useTheme();
 
   return (
-    <nav className="navbar navbar-expand-xl" css={getHeaderStyles}>
+    <nav
+      className="navbar navbar-expand-xl navbar-light"
+      css={(theme) => getHeaderStyles(theme, inDarkMode)}
+    >
       <Link to={"/"} className="navbar-brand">
         <h1>Hask Design</h1>
       </Link>
@@ -41,17 +46,17 @@ function Header(props) {
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
+      <div className="collapse navbar-collapse align-self-stretch" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto align-self-stretch">
           { renderLink("/", "Home") }
           { renderLink("/work", "Work") }
           { renderLink("/resume", "Resume") }
-          <div className="nav-item" id="uiColorModeSwitchArea">
+          <div className="nav-item pl-3" id="uiColorModeSwitchArea">
             <p>Dark Mode: </p>
             <Switch
-              checked={props.userInterfaceMode === userInterfaceMode.DARK_MODE}
+              checked={inDarkMode}
               checkedIcon={false}
-              offColor={theme.colors.backgrdound}
+              offColor={theme.colors.ink.twenty}
               onChange={handleCheckChanged}
               onColor={theme.colors.background}
               uncheckedIcon={false}
