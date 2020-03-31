@@ -10,7 +10,7 @@ export const getTheme = (inDarkMode) => {
         forty: '#9999',
         twenty: '#cccccc'
       },
-      background: '#dcdcdc',
+      background: 'rgb(248, 248, 248)',
       paper: '#ffffff'
     },
     whiteSpace: {

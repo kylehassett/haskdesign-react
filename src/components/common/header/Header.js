@@ -1,9 +1,9 @@
-/* @jsx jsx */
+/** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Switch from 'react-switch';
 
 import { setUserInterfaceMode, userInterfaceMode } from '../../../actions';
@@ -19,8 +19,24 @@ function Header(props) {
 
   const renderLink = (href, title) => {
     return (
-      <li className="nav-item pl-3 pr-3 d-inline-flex align-items-center">
-        <Link to={href} className="nav-link">{title}</Link>
+      <li className={`
+        nav-item
+        ${props.location.pathname === href ? "active" : "border-right border-light"}
+        pl-3
+        pr-3
+        d-inline-flex
+        align-items-center
+      `}>
+        <Link
+          to={href}
+          className={`nav-link ${
+            props.location.pathname === href
+              ? inDarkMode ? "text-dark" : "text-light"
+              : inDarkMode ? "text-light" : "text-dark"
+          }`}
+        >
+          {title}
+        </Link>
       </li>
     );
   };
@@ -29,14 +45,14 @@ function Header(props) {
 
   return (
     <nav
-      className="navbar navbar-expand-xl navbar-light"
+      className={`navbar navbar-expand-xl ${inDarkMode ? 'navbar-dark' : 'navbar-light'}`}
       css={(theme) => getHeaderStyles(theme, inDarkMode)}
     >
       <Link to={"/"} className="navbar-brand">
         <h1>Hask Design</h1>
       </Link>
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
@@ -44,14 +60,17 @@ function Header(props) {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse align-self-stretch" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto align-self-stretch">
+        <ul className="navbar-nav ml-auto align-self-stretch">
           { renderLink("/", "Home") }
           { renderLink("/work", "Work") }
           { renderLink("/resume", "Resume") }
-          <div className="nav-item pl-3" id="uiColorModeSwitchArea">
+          <div
+            className={`nav-item pl-3 pt-2 pb-2 ${inDarkMode ? "text-light" : "text-dark"}`}
+            id="uiColorModeSwitchArea"
+          >
             <p>Dark Mode: </p>
             <Switch
               checked={inDarkMode}
@@ -78,4 +97,4 @@ const mapDispatchToProps = {
   setUserInterfaceMode
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
