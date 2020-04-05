@@ -1,5 +1,5 @@
-export const getHeaderStyles = (theme, inDarkMode) => ({
-  backgroundColor: inDarkMode ? theme.colors.paper : theme.colors.backgroundColor,
+export const getHeaderStyles = (theme) => ({
+  backgroundColor: theme.colors.background,
   paddingTop: '0 !important',
   paddingBottom: '0 !important',
   '& h1': {

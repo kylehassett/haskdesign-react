@@ -1,5 +1,5 @@
 export const getHomeStyles = (theme) => ({
-  backgroundColor: theme.colors.background,
+  backgroundColor: theme.colors.paper,
   '.row': {
     height: '33%'
   },

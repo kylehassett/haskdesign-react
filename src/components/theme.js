@@ -10,8 +10,8 @@ export const getTheme = (inDarkMode) => {
         forty: '#9999',
         twenty: '#cccccc'
       },
-      background: 'rgb(248, 248, 248)',
-      paper: '#ffffff'
+      background: '#ffffff',
+      paper: 'rgb(248, 248, 248)'
     },
     whiteSpace: {
       xs: 4,
@@ -30,8 +30,8 @@ export const getTheme = (inDarkMode) => {
         forty: '#666666',
         twenty: '333333'
       },
-      background: '#0f0f0f',
-      paper: '#181818'
+      background: '#181818',
+      paper: '#0f0f0f'
     });
   }
 

@@ -46,7 +46,7 @@ function Header(props) {
   return (
     <nav
       className={`navbar navbar-expand-xl ${inDarkMode ? 'navbar-dark' : 'navbar-light'}`}
-      css={(theme) => getHeaderStyles(theme, inDarkMode)}
+      css={getHeaderStyles}
     >
       <Link to={"/"} className="navbar-brand">
         <h1>Hask Design</h1>
@@ -77,7 +77,7 @@ function Header(props) {
               checkedIcon={false}
               offColor={theme.colors.ink.twenty}
               onChange={handleCheckChanged}
-              onColor={theme.colors.background}
+              onColor={theme.colors.paper}
               uncheckedIcon={false}
             />
           </div>
