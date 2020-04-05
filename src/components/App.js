@@ -21,15 +21,15 @@ function App(props) {
   return (
     <Router>
       <ThemeProvider theme={appTheme}>
-        <div className="root" css={getAppStyles}>
+        <div className="d-flex flex-column flex-fill" css={getAppStyles}>
           <Header />
           <Switch>
             <Route exact path={"/"} component={Home} />
             <Route exact path={"/resume"} component={Resume} />
             <Route exact path={"/work"} component={Work} />
           </Switch>
-          <Footer />
         </div>
+        <Footer />
       </ThemeProvider>
     </Router>
   );

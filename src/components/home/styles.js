@@ -1,5 +1,8 @@
 export const getHomeStyles = (theme) => ({
   backgroundColor: theme.colors.background,
+  '.row': {
+    height: '33%'
+  },
   p: {
     color: theme.colors.ink.sixty,
     fontWeight: 900,
@@ -7,13 +10,13 @@ export const getHomeStyles = (theme) => ({
     margin: 0,
     padding: 0,
     '@media(min-width: 0px)': {
-      fontSize: 48
+      fontSize: 68
     },
     '@media(min-width: 576px)': {
-      fontSize: 64
+      fontSize: 100
     },
     '@media(min-width: 720px)': {
-      fontSize: 150
+      fontSize: 140
     },
     '@media(min-width: 960px)': {
       fontSize: 190

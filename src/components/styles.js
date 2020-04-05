@@ -1,3 +1,3 @@
 export const getAppStyles = () => ({
-  height: '100vh'
+  height: "100vh"
 });
