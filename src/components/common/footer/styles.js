@@ -1,8 +1,6 @@
 export const getFooterStyles = (theme) => ({
   backgroundColor: theme.colors.background,
-  linkArea: {
-
-  },
+  fontSize: 18,
   topLink: {
     marginTop: theme.whiteSpace.md,
   },
@@ -10,6 +8,9 @@ export const getFooterStyles = (theme) => ({
     marginBottom: theme.whiteSpace.md
   },
   a: {
+    color: theme.colors.ink.forty
+  },
+  p: {
     color: theme.colors.ink.forty
   }
 });

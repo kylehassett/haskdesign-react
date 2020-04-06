@@ -11,7 +11,7 @@ function Footer() {
     <div className={`
       d-flex
       flex-column
-      ml-3
+      ml-5
       pt-3
     `} >
       <Link to={link.href}>
@@ -28,7 +28,15 @@ function Footer() {
 
   return (
     <div className="container.fluid pb-3" css={getFooterStyles}>
-      { linkList.map(renderLink) }
+      <div className="row">
+        <div className="col">
+          { linkList.map(renderLink) }
+        </div>
+        <div className="col d-flex flex-column justify-content-start align-items-end pt-3 mr-5">
+          <p>&copy; Kyle Hassett</p>
+          <p>Programmer Extraordinaire</p>
+        </div>
+      </div>
     </div>
   );
 }
