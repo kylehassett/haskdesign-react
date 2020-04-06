@@ -2,8 +2,12 @@ import React from 'react';
 
 function Work() {
   return (
-    <div>
-      <p>Work</p>
+    <div classNam="container.fluid">
+      <div className="row" align="center">
+        <div className="col">
+          <p>Work</p>
+        </div>
+      </div>
     </div>
   );
 }
